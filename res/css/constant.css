@@ -1,0 +1,49 @@
+body{
+    top: 0%; left: 0%;
+    margin-left: 0%;
+    overflow-x: hidden;
+    width: 100%; height: 100%;
+    background-color: var(--themecol_sec);
+}
+    /* # Rule
+    --text_col must negate --themecol_
+    */
+/*
+:root{
+    --themecol_pri: white;
+    --themecol_sec: #eeeeed;
+    --themecol_ter: #3c14dc;
+    --textcol_pri: #3c14dc;
+    --textcol_sec: black;
+    --textcol_ter: black;
+    --glass: rgba(100, 100, 150, 0.2);
+}
+*/
+
+:root{
+    --themecol_pri: black;
+    --themecol_sec: #111112;
+    --themecol_ter: #dc143c;
+    --textcol_pri: crimson;
+    --textcol_sec: white;
+    --textcol_ter: white;
+    --glass: rgba(150, 100, 100, 0.2);
+}
+
+
+
+
+@font-face{
+ src: url("../fonts/Karla-Regular.ttf");   
+ font-family:primaryf;
+}
+@font-face{
+ src: url("../fonts/SourceSansPro-Regular.ttf");   
+ font-family:pregularf;
+}
+@font-face{
+ src: url("../fonts/leaguespartan-bold.ttf"); 
+ font-family:headerboldf;
+}
+
+
