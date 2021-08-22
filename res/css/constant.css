@@ -5,31 +5,57 @@ body{
     width: 100%; height: 100%;
     background-color: var(--themecol_sec);
 }
+
+
+
+
     /* # Rule
     --text_col must negate --themecol_
     */
-/*
 :root{
-    --themecol_pri: white;
+    
+    /*
+    //brighttonightgreen;
+    --themecol_pri: black;
     --themecol_sec: #eeeeed;
-    --themecol_ter: #3c14dc;
-    --textcol_pri: #3c14dc;
+    --themecol_ter: #23ebc3;
+    --textcol_pri: #23ebc3;
     --textcol_sec: black;
     --textcol_ter: black;
-    --glass: rgba(100, 100, 150, 0.2);
-}
-*/
-
-:root{
+    --glass: #23ebc322;
+    */
+    
+    
+    //nightred;
     --themecol_pri: black;
     --themecol_sec: #111112;
-    --themecol_ter: #dc143c;
+    --themecol_ter: #dc143c88;
     --textcol_pri: crimson;
     --textcol_sec: white;
     --textcol_ter: white;
-    --glass: rgba(150, 100, 100, 0.2);
+    --glass: #dc143c11;;
+    
+    /*
+    //nightblue;
+    --themecol_pri: black;
+    --themecol_sec: #111112;
+    --themecol_ter: #3c14bc22;
+    --textcol_pri: #3c14bc;
+    --textcol_sec: white;
+    --textcol_ter: white;
+    --glass: #3c14bc22;
+    */
+    /*
+    //nightgreen;
+    --themecol_pri: black;
+    --themecol_sec: #111112;
+    --themecol_ter: #23ebc322;
+    --textcol_pri: #23ebc3;
+    --textcol_sec: white;
+    --textcol_ter: white;
+    --glass: #23ebc322;
+     */
 }
-
 
 
 
