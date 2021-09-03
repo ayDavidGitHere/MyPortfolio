@@ -4,7 +4,6 @@ export function Main(){
     let nav_text_main = document.getElementById("nav-text-main");
     let nav_text_sub = document.getElementById("nav-text-sub");
     
-    
     ScrollEffects.LogReadPoint(function(element, label, index){
         nav_text_sub.innerText = label;
         if(nav_text_sub.className.indexOf("showcase")!=null){

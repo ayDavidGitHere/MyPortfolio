@@ -26,35 +26,37 @@ body{
     */
     
     
-    //nightred;
-    --themecol_pri: black;
-    --themecol_sec: #111112;
-    --themecol_ter: #dc143c88;
-    --textcol_pri: crimson;
-    --textcol_sec: white;
-    --textcol_ter: white;
-    --glass: #dc143c11;;
     
-    /*
-    //nightblue;
+    
+    --nightred: #dc143c;
+    --nightdim_red: #dc143c88;
+    --nightglass_red: #dc143c11;
+    --nightblue: #3c14bc;
+    --nightdim_blue: #3c14bc22;
+    --nightglass_blue: #3c14bc22;
+    --nightgreen: #23ebc3;
+    --nightdim_green: #23ebc322;
+    --nightglass_green: #23ebc322;
+    
+    
     --themecol_pri: black;
     --themecol_sec: #111112;
-    --themecol_ter: #3c14bc22;
-    --textcol_pri: #3c14bc;
+    --themecol_ter: var(--nightdim_red);
+    --textcol_pri: var(--nightred);
     --textcol_sec: white;
     --textcol_ter: white;
-    --glass: #3c14bc22;
-    */
-    /*
-    //nightgreen;
-    --themecol_pri: black;
-    --themecol_sec: #111112;
-    --themecol_ter: #23ebc322;
-    --textcol_pri: #23ebc3;
-    --textcol_sec: white;
-    --textcol_ter: white;
-    --glass: #23ebc322;
-     */
+    --glass: var(--nightglass_red);
+    
+    
+    --themecol_ter: var(--nightdim_blue);
+    --textcol_pri: var(--nightblue);
+    --glass: var(--nightglass_blue);
+    
+    
+    --themecol_ter: var(--nightdim_green);
+    --textcol_pri: var(--nightgreen);
+    --glass: var(--nightglass_green);
+     
 }
 
 
