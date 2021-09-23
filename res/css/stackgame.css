@@ -1,0 +1,18 @@
+
+
+
+game-container{
+    display: block; position: relative;
+    margin-bottom: 20px;
+}
+bboard{
+    display: inline-block;
+    background: red; width: 50px; height: 10px;
+    position: absolute; 
+}
+bball{
+    position: absolute; 
+    display: inline-block;
+    width: 10px; height: 10px;
+    background-color: blue; border-radius: 50%;
+}

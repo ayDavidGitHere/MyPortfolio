@@ -39,15 +39,11 @@ body{
     --nightglass_green: #23ebc322;
     
     
-    --themecol_pri: black;
-    --themecol_sec: #111112;
     --themecol_ter: var(--nightdim_red);
     --textcol_pri: var(--nightred);
-    --textcol_sec: white;
-    --textcol_ter: white;
     --glass: var(--nightglass_red);
     
-    
+    /*
     --themecol_ter: var(--nightdim_blue);
     --textcol_pri: var(--nightblue);
     --glass: var(--nightglass_blue);
@@ -56,6 +52,14 @@ body{
     --themecol_ter: var(--nightdim_green);
     --textcol_pri: var(--nightgreen);
     --glass: var(--nightglass_green);
+     */
+     
+     
+     
+    --themecol_pri: black;
+    --themecol_sec: #111112;
+    --textcol_sec: white;
+    --textcol_ter: white;
      
 }
 

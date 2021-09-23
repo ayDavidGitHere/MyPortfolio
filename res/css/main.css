@@ -37,6 +37,7 @@
 .full-container{
     width: 100%; display: block;
     font-family: pregularf;    font-size: 18px;
+    
 }
 .story-block{
     width: 90%;
@@ -104,13 +105,17 @@
     padding: 0.5rem; display: inline;
     margin-bottom: 0.2rem;
 }
+.story-block.showcase s-header{
+    padding: 0.3rem; padding-left: 0.6rem; padding-right: 0.6rem;
+    margin-right: 0.2rem;
+    border-radius: 30px;
+    background-color: black; color: var(--textcol_pri);
+    
+}
 .story-block.showcase.stacks{
     background-color: inherit !important;
     transform: rotate(0deg) !important;
 }
-
-
-
 
 .story-block.siteinfo{
     display: block; padding: 1rem;
@@ -124,6 +129,16 @@
 .story-block.showcase:last-of-type{
     transform: rotate(-6deg);
 }
+
+
+
+
+#techstacks-container #stacks-playbut{
+    width: 50px; height: 50px; margin: 0 auto;
+    background-color: var(--themecol_ter); border-radius: 50%;
+}
+
+
 
 
 

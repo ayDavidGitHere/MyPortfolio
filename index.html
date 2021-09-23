@@ -2,7 +2,8 @@
 <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
 <link rel="stylesheet" href="http://localhost:1111/fontconstant.css">
 <link rel="stylesheet" href="res/css/constant.css"> 
-<link rel="stylesheet" href="res/css/main.css"> 
+<link rel="stylesheet" href="res/css/main.css">
+<link rel="stylesheet" href="res/css/stackgame.css">
 <link rel="shortcut icon"  href="img/mainlogo.png" type="image/png"/>
 <meta name="theme-color" content="#111112"/>
 <meta name="title" content="AyoadeDavid Portfolio "> <meta name="description" content="  Top "> <meta name="keywords" content=" games"> <meta name="robots" content="index, follow"> <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> <meta name="language" content="English"> <meta name="revisit-after" content="1 days"> <meta name="author" content="aydavidgithere">
@@ -15,11 +16,11 @@
 <script src="http://localhost:1111/CodeHelps/src/CodeHelps.js"></script>
 <script src="http://localhost:1111/CDraw/src/CDraw.js"></script>
 <script src="http://localhost:1111/CDraw/src/CDrawf.styleBg.js"></script>
-<script 
+<!--script 
 src="https://aydavidgithere.github.io/CodeHelps/src/CodeHelps.js"></script>
 <script src="https://aydavidgithere.github.io/CDraw/src/CDraw.js"></script>
 <script 
-src="https://aydavidgithere.github.io/CDraw/src/CDrawf.styleBg.js"></script>
+src="https://aydavidgithere.github.io/CDraw/src/CDrawf.styleBg.js"></script-->
 <script type="module">
 import * as Main from './res/js/Main.js';
 Main.Main();
@@ -53,12 +54,13 @@ Main.Main();
     <div class="grad-bg full-container">
         
         
-        <br><br><br>
+        <br><br><br><br><br>
         <section id="techstacks-container">
         <header style-block id="showcase-header" read-point="TechStacks">
             <h2 data-content="Stacks">My Tech Stacks</h2>
         </header>
         <br><br>
+        <game-container>
         <ul class="story-block showcase stacks">
             <li><inline-game-text> Php</inline-game-text></li>
             <li>Javascript</li>
@@ -70,32 +72,33 @@ Main.Main();
             <li>Express</li>
             <li>Postgresql</li>
         </ul>
+        </game-container>
         </section>
         
-        <br><br>
+        <br><br><br><br><br><br>
         <section id="myprojects-container">
         <header style-block id="showcase-header" class="myprojects" read-point="My Projects">
             <h2 data-content="Projects">My Projects</h2>
         </header>
         <br><br>
         <div class="story-block showcase" read-point="showcase-games">  
-            Ayplay features 25 games built on Threejs, pure html, css and javascript.
+            <s-header> Ayplay •</s-header> features 25 games built on Threejs, pure html, css and javascript.
         </div>
         <br>
         <div class="story-block showcase" read-point="showcase-php">
-            Tweem is a chat app built with Core Php.<br><br>
-            Readmag is a blogging, article reading and writing site also written in php.
+            <s-header>Tweem •</s-header>is a chat app built with Vanilla Php.<br><br>
+            <s-header>Readmag •</s-header> is a blogging, article reading and writing site also written in php.
         </div>
         <br>
         <div class="story-block showcase" read-point="showcase-java">
-            Mpmusic is an  android music player app written in java.
+            <s-header>Mpmusic •</s-header> is an  android music player app written in java.
         </div>
         <br>
         <div class="story-block showcase" read-point="showcase-others">
-            TextMarkup.js is a tiny script for text editing useful for blogs.
+            <s-header>TextMarkup.js •</s-header> is a tiny script for text editing useful for blogs.
             <br><br>
-            Cdraw-stylebg.js creates background animations with my Canvas library "CDraw.js".
-        </div>
+            <s-header> Stylebg.js •</s-header> creates background animations with my Canvas library "CDraw.js". 
+        </div> 
         </section>
         
         
