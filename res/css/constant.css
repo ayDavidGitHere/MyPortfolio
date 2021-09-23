@@ -38,21 +38,21 @@ body{
     --nightdim_green: #23ebc322;
     --nightglass_green: #23ebc322;
     
-    
+    /*
     --themecol_ter: var(--nightdim_red);
     --textcol_pri: var(--nightred);
     --glass: var(--nightglass_red);
-    
+    */
     /*
     --themecol_ter: var(--nightdim_blue);
     --textcol_pri: var(--nightblue);
     --glass: var(--nightglass_blue);
-    
+    */
     
     --themecol_ter: var(--nightdim_green);
     --textcol_pri: var(--nightgreen);
     --glass: var(--nightglass_green);
-     */
+     
      
      
      

@@ -1,35 +1,36 @@
 export default class ScrollEffects{
-    static LogReadPoint(Callback){
+    static LogScrollPoint(Callback){
     
-    let read_points = [...document.querySelectorAll("[read-point]")];
+    let scroll_points = [...document.querySelectorAll("[scroll-point]")];
     let label_last = "";
     let focused = null;
     let pageHeight = document.body.clientHeight;
     window.onscroll = function(evt){ //works
-        if(read_points.length>0){
-        read_points.map((read_point, read_pointInd)=>{
-            let bbox = read_point.getBoundingClientRect();
+        if(scroll_points.length>0){
+        scroll_points.map((scroll_point, scroll_pointInd)=>{
+            let bbox = scroll_point.getBoundingClientRect();
             if(focused==null){   
-                focused = {elem: read_point, index: read_pointInd};
+                focused = {elem: scroll_point, index: scroll_pointInd};
             }
             else if(bbox.top<pageHeight/2 && bbox.top+bbox.width>0){
-                focused = {elem: read_point, index: read_pointInd};
+                focused = {elem: scroll_point, index: scroll_pointInd};
             }
         });//EO map
         
         
-        let read_point = read_points[focused.index];
-        let label = read_point.getAttribute("read-point");
+        let scroll_point = scroll_points[focused.index];
+        let label = scroll_point.getAttribute("scroll-point");
         if(label != label_last){        //performance block
-            Callback(read_point, label, focused.index);
+            Callback(scroll_point, label, focused.index);
             label_last = label
         }//EO if
         }
     }//EO  onscroll
-    if(read_points.length<1){
-        console.warn("add read_points attribute to elements.")
+    if(scroll_points.length<1){
+        console.warn("add scroll_point attribute to elements.")
     }
     
-    }//EO LogReadPoint
+    
+    }//EO LogscrollPoint
     
 }//EO class
