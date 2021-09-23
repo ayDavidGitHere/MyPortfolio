@@ -149,7 +149,7 @@ export function LoadStackGame(){
         
         
         let time = 0;
-        let bballSpeed = 5; 
+        let bballSpeed = 3; 
         let bballDir = (Math.PI/180)*Math.floor(Math.random()*180);
         function getBound(obs){
             let std = (obs.type==="stack"?8:0);
