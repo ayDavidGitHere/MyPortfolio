@@ -2,14 +2,39 @@
 
 export function LoadStackGame(){
     let container = DOMHelp._("#techstacks-container");
-    let playButton = document.createElement("div");
-    playButton.setAttribute("id", "stacks-playbut");
-    playButton.style.color = "white";
-    container.append(playButton);
-    playButton.onclick = ()=>{
-        if(!GAME.active) Play();
-        else Reset();
+    
+    
+    let contrMenu = document.createElement("div");
+    contrMenu.setAttribute("id", "game-contrmenu");
+    contrMenu.innerHTML = ""
+    +"<div class='roundbut' id='stacksbreaker-playbut'>"
+    +"  <img src='res/img/pause.png'/>"
+    +"</div>"
+    +"<div class='roundbut' id='contrmenu-cancelbut' hidden>"
+    +"  <img src='res/img/cancel.png'/>"
+    +"</div>"
+    ;
+    container.append(contrMenu);
+    let contrMenuProps = {style: contrMenu.style,}
+    
+    
+    let cancelButton = DOMHelp._("#contrmenu-cancelbut");
+    cancelButton.onclick = ()=>{
+        GAME.Reset();
     }
+    var startObj = null;
+    let playButton = DOMHelp._("#stacksbreaker-playbut");
+    playButton.onclick = ()=>{
+        if(!GAME.active) startObj = new GAME.Start();
+        else{
+            if(!GAME.PLAYING){
+                GAME.PLAYING = true; 
+                startObj.animate();
+            }
+            else if(GAME.PLAYING){GAME.PLAYING = false;}
+        }//EO else.
+    }
+    
     
     
     
@@ -17,37 +42,49 @@ export function LoadStackGame(){
     let stacksContainer = DOMHelp._("story-block showcase stacks");
     let gameContainer = DOMHelp._("game-container");
     let gameContainerUnPlay = 
-    {HTML: gameContainer.innerHTML, style: gameContainer.style}
+    {HTML: gameContainer.innerHTML, style: gameContainer.style};
     let bboard = null; let bball = null; let doom = null;
     var N = (v)=>{return Number(v.replace("px", ""));}
     var ToRad = (v)=>{return (Math.PI/180)*v; };
     var ToDeg = (v)=>{return v/(Math.PI/180); };
     var Bound = (x, a, b)=>{ return(x>a && x<b);}
-    var GAME = {active: false, }
-    
-    function Reset(){
+    var GAME = 
+    {
+    active: false, 
+    PLAYING: false,
+    Reset: ()=>{
         GAME.active = false;
+        GAME.PLAYING = false;
+        document.body.style.overflow = "scroll";
+        contrMenu.style = contrMenuProps.style;
+        cancelButton.setAttribute("hidden", "")
         gameContainer.innerHTML = gameContainerUnPlay.HTML;
         gameContainer.style = gameContainerUnPlay.style;
-        document.body.style.overflow = "scroll";
-    }
-    function Play(){
-        Reset();
+    },
+    Start: function(){
+        GAME.Reset();
         GAME.active = true;
+        GAME.PLAYING = true;
         document.body.style.overflow = "hidden";
+        contrMenu.style.bottom = "1rem";
+        contrMenu.style.position = "fixed";
+        cancelButton.removeAttribute("hidden", "")
         gameContainer.innerHTML 
         += ""
         +"<bball > </bball>"
         +"<bboard> </bboard>"
         +"<doom  > </doom>";
-        gameContainer.style.height = "200px";
-        gameContainer.style.backgroundColor = "white";
+        gameContainer.style.height = "300px";
         
         
         stacks = DOMHelp._(".story-block.showcase li", "this");
         [... stacks].map((stack, ind)=>{
             stack.name = "stack_"+stack.innerText;
             stack.type = "stack";
+            stack.strength = MHelp.randOpt(1,2,3);
+            stack.style.backgroundColor = 
+            ["#338844", "#883344", "#334488"][stack.strength-1]; 
+            stack.style.color = "white";
             stack.style.position = "absolute";
             stack.style.display = "inline-block";
             stack.style.opacity = 1;
@@ -55,6 +92,7 @@ export function LoadStackGame(){
             stack.style.left = (30+Math.random()*30)+"px";
             stack.style.fontSize = "10px";
             stack.style.padding = "0.1rem";
+            stack.style.paddingInline = "0rem"
             stack.style.marginLeft = "0px";
             stack.style.marginRight = (30+Math.random()*30)+"px"
             stack.spaceW = 
@@ -135,7 +173,8 @@ export function LoadStackGame(){
         KillingStack: function(obs){
             //killingStack;
             if(obs.type==="stack"){
-                obs.style.opacity = (Number(obs.style.opacity)-0.1);
+                obs.style.opacity = 
+                (Number(obs.style.opacity)-obs.strength/10);
             }
         },
         EndBall: function(obs){
@@ -194,9 +233,8 @@ export function LoadStackGame(){
             
         }
         
-            var rp = Math.floor(Math.random()*9)
         
-        function animate(){
+        let animate = ()=>{
             time++;
             //playButton.innerText = (bballDir*180/3.143)+""
             let bballSpeedX = Math.cos(bballDir)*bballSpeed;
@@ -223,11 +261,13 @@ export function LoadStackGame(){
             
             
             
-            if(GAME.active) requestAnimationFrame(animate);
+            if(GAME.PLAYING && GAME.active) requestAnimationFrame(animate);
         }
         animate();
+        this.animate = animate;
         
-    };
+    },
+    }//EO GAME;
     
     
     
