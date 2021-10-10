@@ -22,7 +22,7 @@
 game-container{
     display: block; position: relative;
     margin-bottom: 20px; 
-    border-color: var(--themecol_ter); border-width: 0.1rem; border-style: solid;
+    border-color: var(--themecol_ter); border-width: 0.1rem; border-style: none;
 }
 bboard{
     display: inline-block;

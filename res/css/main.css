@@ -21,7 +21,7 @@
     top: 50%;    transform: translate(0, -50%);
     padding-top: 0.5rem; padding-bottom: 0.5rem;
     font-family: headerboldf;;
-    font-size: 13px;    font-weight: bold;
+    font-size: 12px;    font-weight: bold;
 }
 #nav-but span#nav-text-sub{    
     font-size: 8px;    font-weight: normal;
@@ -36,7 +36,7 @@
 }
 .full-container{
     width: 100%; display: block;
-    font-family: pregularf;    font-size: 18px;
+    font-family: pregularf;    font-size: 17px;
     
 }
 .story-block{
@@ -80,7 +80,7 @@
     border-radius: 10px;
     display: block; padding: 1rem;
     overflow-wrap: break-word;
-    font-size: 13px; font-family: primaryf; 
+    font-size: 12px; font-family: primaryf; 
     line-height: 2rem; color: var(--textcol_pri);
     transform: rotate(3deg); 
     transition: transform 1500ms ease;

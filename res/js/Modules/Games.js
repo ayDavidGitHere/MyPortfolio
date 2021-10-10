@@ -75,6 +75,7 @@ export function LoadStackGame(){
         +"<bboard> </bboard>"
         +"<doom  > </doom>";
         gameContainer.style.height = "300px";
+        gameContainer.style.borderStyle = "solid";
         
         
         stacks = DOMHelp._(".story-block.showcase li", "this");
