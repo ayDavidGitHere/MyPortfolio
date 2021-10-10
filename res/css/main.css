@@ -122,6 +122,8 @@
     overflow-wrap: break-word;
     font-size: 12px; font-family: primaryf; 
     line-height: 2rem; color: var(--textcol_sec);
+    background-color: var(--glass);
+    border-radius: 10px; 
 }
 .story-block.showcase:first-of-type{
     transform: rotate(-5deg);
