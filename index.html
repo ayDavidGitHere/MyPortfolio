@@ -24,7 +24,7 @@ src="https://aydavidgithere.github.io/CodeHelps/src/CodeHelps.js"></script>
 src="https://aydavidgithere.github.io/CDraw/src/CDrawf.styleBg.js"></script-->
 <script src="./res/js/lib/CodeHelps.js"></script>
 <script src="./res/js/lib/CDraw.js"></script>
-<script src="./res/js/lib/CDrawf.styleBg.js"></script>
+<script src="./res/js/lib/CDrawf.stylebg.js"></script>
 <script type="module">
 import * as Main from './res/js/Main.js';
 Main.Main();
@@ -32,7 +32,7 @@ Main.Main();
 </head>
             
             
-<body>
+<body >
     <div id="header-blurer">
         
     </div>
@@ -47,11 +47,14 @@ Main.Main();
         </span>
     </div>
     <div class="welcome full-container">
-        <br><br><br><br><br>
+        <br><br><br>
+        <div class="story-block" id="intro-anim-block" scroll-point="Aydavid">
+        </div>
+        <br><br>
         <div class="story-block" id="intro-block" scroll-point="intro">
         <span>
         This is <highlite>ayoade david</highlite>'s Portfolio.
-        <br>I make web games, create engaging web pages, develop real time server-side applications and create mobile apps.
+        <br>I make javascript games, create engaging web pages, develop real time server-side applications and create mobile apps.
         </span>
         </div>
     </div>
@@ -64,15 +67,16 @@ Main.Main();
         <br><br>
         <game-container>
         <ul class="story-block showcase stacks">
-            <li><inline-game-text> Php</inline-game-text></li>
-            <li>Javascript</li>
-            <li>HTML/CSS</li>
-            <li>Java</li>
-            <li>Android</li>
-            <li rand="2rem">Threejs</li>
-            <li>Node js</li>
-            <li>Postgresql</li>
-            <li>Express</li>
+            <li str="3"><inline-game-text> Php</inline-game-text></li>
+            <li str="1">Mysql</li>
+            <li str="3">Javascript</li>
+            <li str="3">HTML/CSS</li>
+            <li str="1">Java</li>
+            <li str="2">Android</li>
+            <li str="2">Threejs</li>
+            <li str="1">Node js</li>
+            <li str="1">Postgresql</li>
+            <li str="1">Express</li>
         </ul>
         </game-container>
         </section>
@@ -83,7 +87,7 @@ Main.Main();
             <h2 data-content="Projects">My Projects</h2>
         </header>
         <br><br>
-        <div class="story-block showcase" scroll-point="showcase-games">  
+        <div class="story-block showcase" scroll-point="showcase-games">
             <s-header>Ayplay •</s-header> features 25 games built on Threejs, pure html, css and javascript.
         </div>
         <br>
@@ -109,10 +113,11 @@ Main.Main();
         <cdraw-stylebg  call="dotsConnect"
             bgColor= "rgba(200, 150, 250, 0)"
             shapeType= "circle"
-            shapeColor= "rgba(25, 200, 30, 0.8)"
-            lineColor= "rgba(25, 200, 30, 1)"
+            shapeColor= "rgba(25, 30, 200, 0.8)"
+            lineColor= "rgba(200, 25, 30, 1)"
             shapeFactor= "1"
             shapeSize="6"
+            dotSpeed="2"
             >
         </cdraw-stylebg>
         <div class="story-block" scroll-point="dark-box-1">
@@ -122,11 +127,11 @@ Main.Main();
             All effects on this page are powered by my scripts and styles.
             <br>Check the source codes on
             <br>
-            <a href="https://github.com/ayDavidGitHere" style="color: black">MyGithub</a>.
+            <a href="https://github.com/ayDavidGitHere" style="color: black">MyGithub</a>
             <br><br>
             Follow me on
             <br>
-            <a href="https://twitter.com/ay__david" style="color: black">Twitter</a>.
+            <a href="https://twitter.com/ay__david" style="color: black">Twitter</a>
         </div>
         <br><br><br><br><br><br><br>
     </div>

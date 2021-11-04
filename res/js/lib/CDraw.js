@@ -19,11 +19,11 @@ class CDraw{
             this.center.x=this.x//+this.thick/2;
             this.center.y=this.y+this.breadthY/2;
         }//EO updateProps
-        let autoStyle = new CDraw.autoStyle(this.thick+"_"+this.color, this);
+        this.autoStyle = new CDraw.autoStyle(this.thick+"_"+this.color, this);
         
         this.draw = (B)=>{      
         B.beginPath();     
-        autoStyle.call(B);
+        this.autoStyle.call(B);
         B.moveTo(this.x, this.y); 
         B.lineTo(this.endX, this.endY); B.stroke();    
         B.closePath(); 
@@ -41,12 +41,12 @@ class CDraw{
             this.center.x=this.x//+this.thick/2;
             this.center.y=this.y+this.breadthY/2;
         }//EO updateProps
-        let autoStyle = new CDraw.autoStyle(this.thick+"_"+this.color, this);
+        this.autoStyle = new CDraw.autoStyle(this.thick+"_"+this.color, this);
         
         this.draw = (B)=>{   
         this.endX = this.x+this.lengthX; this.endY = this.y+this.breadthY
         B.beginPath();     
-        autoStyle.call(B);
+        this.autoStyle.call(B);
         B.moveTo(this.x, this.y); 
         B.lineTo(this.endX, this.endY); B.stroke();    
         B.closePath();
@@ -70,14 +70,14 @@ class CDraw{
             this.center.x=this.x+(-(this.adjustment[0]-1)*this.fontSize/2);
             this.center.y=this.y-(-(this.adjustment[1]-1)*this.fontSize/2);
         }//EO updateProps
-        let autoStyle = new CDraw.autoStyle(this.styling, this);
+        this.autoStyle = new CDraw.autoStyle(this.styling, this);
         
         
         this.draw = (B)=>{   
         B.textAlign = this.textAlign; 
         B.textBaseline =  this.textBaseline;
         B.font = this.font;
-        autoStyle.call(B, ()=>{
+        this.autoStyle.call(B, ()=>{
             B.strokeText(this.value, this.x, this.y, this.maxWidth); 
         },
         ()=>{
@@ -98,12 +98,12 @@ class CDraw{
         this.updateProps = (B)=>{
             this.center.x = this.x; this.center.y = this.y;
         }
-        let autoStyle = new CDraw.autoStyle(this.styling, this);
+        this.autoStyle = new CDraw.autoStyle(this.styling, this);
         
         this.draw = (B)=>{   
             B.beginPath();
             B.arc(this.x, this.y, this.radius, this.startAngle,this.endAngle);
-            autoStyle.call(B);
+            this.autoStyle.call(B);
             B.closePath();
             this.updateProps(B);
         }
@@ -120,11 +120,12 @@ class CDraw{
             this.center.x=this.x+this.lengthX/2;
             this.center.y=this.y+this.breadthY/2;
         }//EO updateProps
-        let autoStyle = new CDraw.autoStyle(this.styling, this);
+        this.autoStyle = new CDraw.autoStyle(this.styling, this);
         
         this.draw = (B)=>{      
+            
             B.beginPath();
-            autoStyle.call(B, ()=>{
+            this.autoStyle.call(B, ()=>{
             B.strokeRect(this.x, this.y, this.lengthX, this.breadthY );
             },
             ()=>{
@@ -137,32 +138,34 @@ class CDraw{
     static group = function(){
         
     }
-    static autoStyle= function(styling, object){
-       var spl;
-       if(typeof styling === "string")spl = styling.split("_");
-       else spl = styling;
-       this.object = object;
-       this.color = object.color = spl[1]; 
-       this.strokeWidth = object.strokeWidth = Number(spl[0]);
-       this.styleType = "FILL";
-       if(spl[0] == "") this.styleType = "FILL";    
-       if(spl[0] != "") this.styleType = "STROKE";
-       this.call = (B, 
-        strokeCallback=function(){B.stroke();},
-        fillCallback=function(){B.fill();}
-        )=>{
+    static autoStyle = function(styling, object){
+       this.set = (styling)=>{
+            var spl;
+            if(typeof styling === "string")spl = styling.split("_");
+            else spl = styling;
+            this.object = object;
+            this.color = this.object.color = spl[1]; 
+            this.strokeWidth = this.object.strokeWidth = Number(spl[0]);
+            this.styleType = "FILL";
+            if(spl[0] == "") this.styleType = "FILL";    
+            if(spl[0] != "") this.styleType = "STROKE";
+       }
+       this.call = (B,
+       callStroke=function(){B.stroke();},callFill=function(){B.fill();})=>{
+           //It is Reactive.
            this.color = this.object.color
            this.strokeWidth = this.object.strokeWidth
            if(this.styleType=="FILL"){ 
-               B.fillStyle = this.color; fillCallback(); 
+               B.fillStyle = this.color;
+               callFill(); 
            }
            if(this.styleType =="STROKE"){
                B.lineWidth = this.strokeWidth; 
                B.strokeStyle = this.color;
-               strokeCallback(); 
+               callStroke(); 
            }
        }//EO call
-       
+       this.set(styling);
     }
     //Transform
     static rotate= function(child, B){

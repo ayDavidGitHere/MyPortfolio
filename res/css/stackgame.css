@@ -1,6 +1,6 @@
 
 #game-contrmenu {
-    display: inline-block; background: red;
+    display: inline-block; background: var(--themecol_ter);
     position: relative;
     left: 50%; transform: translate(-50%, 0);
     border-radius: 30px; 

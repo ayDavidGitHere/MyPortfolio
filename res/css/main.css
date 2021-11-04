@@ -124,6 +124,8 @@
     line-height: 2rem; color: var(--textcol_sec);
     background-color: var(--glass);
     border-radius: 10px; 
+    background: 
+    linear-gradient(to right, var(--glass), var(--nightglass_red), var(--nightglass_blue) );
 }
 .story-block.showcase:first-of-type{
     transform: rotate(-5deg);

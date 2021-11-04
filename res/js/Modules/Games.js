@@ -1,6 +1,8 @@
     
-
+    
 export function LoadStackGame(){
+    let play_but = document.createElement("div");
+    play_but.innerHTML = "<div id='play-but-circle'></div>"
     let container = DOMHelp._("#techstacks-container");
     
     
@@ -82,8 +84,12 @@ export function LoadStackGame(){
         [... stacks].map((stack, ind)=>{
             stack.name = "stack_"+stack.innerText;
             stack.type = "stack";
-            stack.strength = MHelp.randOpt(1,2,3);
-            stack.style.backgroundColor = 
+            stack.strength = 4-stack.getAttribute("str");//MHelp.randOpt(1,2,3);
+            stack.style.backgroundColor = "black";
+            stack.style.borderStyle = "solid";
+            stack.style.boxSizing = "content-box";
+            stack.style.borderWidth = "0.6px";
+            stack.style.borderColor = 
             ["#338844", "#883344", "#334488"][stack.strength-1]; 
             stack.style.color = "white";
             stack.style.position = "absolute";
@@ -189,7 +195,7 @@ export function LoadStackGame(){
         
         
         let time = 0;
-        let bballSpeed = 3; 
+        let bballSpeed = 5; 
         let bballDir = (Math.PI/180)*Math.floor(Math.random()*180);
         function getBound(obs){
             let std = (obs.type==="stack"?8:0);

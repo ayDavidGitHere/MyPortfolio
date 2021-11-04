@@ -10,7 +10,8 @@ allTags.map((tagAtIndex, tagIndex)=>{
     let settings = {}; 
     ["bgColor","shapeColor",
      "shapeFactor","shapeType",
-     "shapeSize","lineColor"].map((attr)=>{
+     "shapeSize","lineColor",
+    ].map((attr)=>{
         let attrVal = tagAtIndex.getAttribute(attr);
         settings[attr] = attrVal;
     });
@@ -42,9 +43,6 @@ CDrawf.styleBg = function(container = null, canvasStyle={fillContainer: true}){
         });
     }
     */
-    
-    
-    
     /**
      * New backgrounder, uses backgroundImage
      * pro-- correct background
@@ -69,6 +67,7 @@ this.dotsConnect = function(changes={}){
     bgColor: "rgba(230, 20, 78, 0.8)",
     shapeColor: "rgba(250, 250, 250, 0.5)",
     lineColor: "white",
+    dotSpeed: 1,
     shapeFactor: 1, dotsAlpha: 0.8,
     shapeSize: 10, uniformRadius: false,
     shapeType: "circle",
@@ -113,8 +112,8 @@ this.dotsConnect = function(changes={}){
             "_"+settings.shapeColor
             );
         }
-        dots[ind].moveDir=MHelp.randOpt(30, 60, 120, 150, 210, 240, 300, 330);
-        dots[ind].modus =  dots[ind].moveDir+Math.random()*360;
+        dots[ind].x = dots[ind].targX = Math.floor(Math.random()*CW);
+        dots[ind].y = dots[ind].targY = Math.floor(Math.random()*CH);
         scene.add(dots[ind]);
         
     }
@@ -140,13 +139,16 @@ this.dotsConnect = function(changes={}){
             }
         })//EO dots.closests
         
-        dot.x += 
-        Math.cos(Math.PI/360*dot.moveDir)*MHelp.signelta(dot.modus, 360);
-        dot.y += 
-        Math.sin(Math.PI/360*dot.moveDir)*MHelp.signelta(dot.modus, 360);
-        dot.moveDir += 0+Math.random()*0.2;
-        dot.modus += 0.8+Math.random()*0.2;
-        if(dot.x == CW*0.333||dot.x == 0 || dot.y==0 || dot.y == CH*0.333)dot.moveDir *= -1; 
+        dot.speedX = settings.dotSpeed;  
+        dot.speedY = settings.dotSpeed;
+        if(dot.x<dot.targX)dot.x += 1*dot.speedX;
+        if(dot.x>dot.targX)dot.x -= 1*dot.speedX;
+        if(dot.y<dot.targY)dot.y += 1*dot.speedY;
+        if(dot.y>dot.targY)dot.y -= 1*dot.speedY;
+        if(dot.x==dot.targX && dot.y==dot.targY){
+            dot.targX = Math.floor(Math.random()*CW);
+            dot.targY = Math.floor(Math.random()*CH);
+        }
     });
         
     requestAnimationFrame(updateFrame)

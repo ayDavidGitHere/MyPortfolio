@@ -1,5 +1,6 @@
 import ScrollEffects from './Modules/ScrollEffects.js';
 import * as Games from './Modules/Games.js';
+import * as CanvasAnims from './Modules/CanvasAnims.js';
 export function Main(){
     
     let nav_text_main = document.getElementById("nav-text-main");
@@ -13,19 +14,12 @@ export function Main(){
         }
     });
     
-    
-    
-    let play_but = document.createElement("div");
-    play_but.innerHTML = "<div id='play-but-circle'></div>"
-    
-    let inline_game_text = 
-    [...document.getElementsByTagName("inline-game-text")][0];
-    inline_game_text.style.textTransform = "uppercase";
-    
+
     
     //Load Game.
     Games.LoadStackGame();
-    
+    //Load Anim.
+    CanvasAnims.LoadIntro();
     
     
     document.documentElement.style.setProperty('themecol_ter', 'dc143c88');
