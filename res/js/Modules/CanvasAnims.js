@@ -2,7 +2,7 @@
     
 export function LoadIntro(){
     var introAnimBlock = DOMHelp._("#intro-anim-block");
-    introAnimBlock.style = "width: 70%; height: 100px; background: transparent;";
+    introAnimBlock.style = "width: 300px; height: 100px; background: transparent;";
     
     
     var a = document.createElement("canvas");
