@@ -1,7 +1,7 @@
     
     
 export function LoadStackGame(){
-    console.log(window.screen.width+":");
+    alert(window.screen.width+":");
     if(window.screen.width>700){console.log(":( Game is not yet available for desktop screens!"); return; }
     let play_but = document.createElement("div");
     play_but.innerHTML = "<div id='play-but-circle'></div>"
